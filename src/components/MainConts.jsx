@@ -1,5 +1,9 @@
 import React from "react";
-// import todayicon from "./assets/img/weather/Sun behind large cloud.png";
+import sblc from "../assets/img/weather/Sun behind large cloud.png";
+import sbc from "../assets/img/weather/Sun behind cloud.png";
+import dog from "../assets/img/animal/Dog.png";
+import cat from "../assets/img/animal/Black cat.png";
+
 const MainConts = () => {
   return (
     <main id="main">
@@ -18,10 +22,7 @@ const MainConts = () => {
               <li>
                 <h3>TODAY</h3>
                 <div class="icon">
-                  <img
-                    src="./assets/img/weather/Sun behind large cloud.png"
-                    alt="todayicon"
-                  />
+                  <img src={sblc} alt="todayicon" />
                 </div>
                 <div class="temp">
                   <span class="high">5</span>
@@ -99,13 +100,13 @@ const MainConts = () => {
             </p>
             <input class="gmark" type="text" placeholder="이름이 무엇인가요?" />
             <span class="dog">
-              <img src="./assets/img/animal/Dog.png" alt="" />
+              <img src={dog} alt="" />
             </span>
             <span class="plants">
               <img src="./assets/img/animal/Potted plant.png" alt="" />
             </span>
             <span class="cat">
-              <img src="./assets/img/animal/Black cat.png" alt="" />
+              <img src={cat} alt="" />
             </span>
           </div>
         </div>
@@ -113,7 +114,7 @@ const MainConts = () => {
           <div class="weather card">
             <div class="date">22/11/16수</div>
             <div class="wea">
-              <img src="./assets/img/weather/Sun behind cloud.png" alt="" />
+              <img src={sbc} alt="" />
             </div>
             <div class="tem">22℃</div>
             <div class="more">
