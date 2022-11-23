@@ -18,7 +18,10 @@ const MainConts = () => {
               <li>
                 <h3>TODAY</h3>
                 <div class="icon">
-                  <img src="#" alt="todayicon" />
+                  <img
+                    src="./assets/img/weather/Sun behind large cloud.png"
+                    alt="todayicon"
+                  />
                 </div>
                 <div class="temp">
                   <span class="high">5</span>
