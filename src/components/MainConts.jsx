@@ -1,10 +1,92 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
 import sblc from "../assets/img/weather/Sun behind large cloud.png";
 import sbc from "../assets/img/weather/Sun behind cloud.png";
 import dog from "../assets/img/animal/Dog.png";
 import cat from "../assets/img/animal/Black cat.png";
 
+// xml을 json으로 변환해주는 xmlToJson함수 선언
+function xmlToJson(xml) {
+  // Create the return object
+  var obj = {};
+
+  if (xml.nodeType == 1) {
+    // element
+    // do attributes
+    if (xml.attributes.length > 0) {
+      obj["@attributes"] = {};
+      for (var j = 0; j < xml.attributes.length; j++) {
+        var attribute = xml.attributes.item(j);
+        obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+      }
+    }
+  } else if (xml.nodeType == 3) {
+    // text
+    obj = xml.nodeValue;
+  }
+
+  // do children
+  // If all text nodes inside, get concatenated text from them.
+  var textNodes = [].slice.call(xml.childNodes).filter(function (node) {
+    return node.nodeType === 3;
+  });
+  if (xml.hasChildNodes() && xml.childNodes.length === textNodes.length) {
+    obj = [].slice.call(xml.childNodes).reduce(function (text, node) {
+      return text + node.nodeValue;
+    }, "");
+  } else if (xml.hasChildNodes()) {
+    for (var i = 0; i < xml.childNodes.length; i++) {
+      var item = xml.childNodes.item(i);
+      var nodeName = item.nodeName;
+      if (typeof obj[nodeName] == "undefined") {
+        obj[nodeName] = xmlToJson(item);
+      } else {
+        if (typeof obj[nodeName].push == "undefined") {
+          var old = obj[nodeName];
+          obj[nodeName] = [];
+          obj[nodeName].push(old);
+        }
+        obj[nodeName].push(xmlToJson(item));
+      }
+    }
+  }
+  return obj;
+}
+
+//함수선언
+export const getXMLfromAPI = async () => {
+  const url =
+    "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
+  const authKey =
+    "WcttXLuCO1vJnUBediRRYQz7BP%2BhjkelbvTU0PH0D5tQmCkgRc3%2FQkw9HLvyKjZfJZZPJUJYlYvMBHZwWoBNTA%3D%3D";
+  const reqURL =
+    url +
+    "?serviceKey=" +
+    authKey +
+    "&numOfRows=809&pageNo=1&base_date=20221123&base_time=0500&nx=55&ny=127";
+
+  // async와 await을 통해 바로 XML을 JSON으로 변환
+  const response = await fetch(reqURL);
+  const xmlString = await response.text();
+  var XmlNode = new DOMParser().parseFromString(xmlString, "text/xml");
+  //console.log(xmlToJson(XmlNode));
+  const data = xmlToJson(XmlNode).response.body.items.item;
+
+  return data;
+};
+
+//함수호출
+//getXMLfromAPI();
+
 const MainConts = () => {
+  const [on, setOn] = useState([]);
+
+  useEffect(() => {
+    getXMLfromAPI()
+      .then((data) => console.log(data))
+      .then((data) => setOn(data));
+  }, []);
   return (
     <main id="main">
       <div class="wrap gmark">
@@ -116,7 +198,7 @@ const MainConts = () => {
             <div class="wea">
               <img src={sbc} alt="" />
             </div>
-            <div class="tem">22℃</div>
+            <tem class="tem">22℃</tem>
             <div class="more">
               <div class="wind">19km/h</div>
               <div class="hum">22%</div>

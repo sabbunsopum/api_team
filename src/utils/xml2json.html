@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./xml2json.js"></script>
+    <script>
+    //함수선언
+const getXMLfromAPI = async () => {
+    const url = 'https://cors-anywhere.herokuapp.com/http://apis.data.go.kr/1360000/AsosDalyInfoService/getWthrDataList';
+    const authKey = 'kKpMWs==========v1Tfvrckn9d3DoT0vWO0EjY5xN06%2BP53Po%2FaGkNo193gHjU8SuGkE2%2Fu65phwcW6NA%3D%3D';
+    const reqURL = url + '?serviceKey=' + authKey + '&numOfRows=10&pageNo=1&dataCd=ASOS&dateCd=DAY&startDt=20100101&endDt=20100102&stnIds=108';
+
+	// async와 await을 통해 바로 XML을 JSON으로 변환
+    const response = await fetch(reqURL);
+    const xmlString = await response.text();
+    var XmlNode = new DOMParser().parseFromString(xmlString, 'text/xml');
+    console.log(xmlToJson(XmlNode));
+};
+
+//함수호출
+getXMLfromAPI();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
