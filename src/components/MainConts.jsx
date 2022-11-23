@@ -84,7 +84,7 @@ const MainConts = () => {
 
   useEffect(() => {
     getXMLfromAPI()
-      .then((data) => console.log(data))
+      //.then((data) => console.log(data))
       .then((data) => setOn(data));
   }, []);
   return (
