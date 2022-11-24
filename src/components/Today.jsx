@@ -8,7 +8,7 @@ import wh from "../assets/img/exercise/Waving hand.png";
 import oh from "../assets/img/exercise/OK hand.png";
 
 const Today = ({ on }) => {
-  console.log(on);
+  //console.log(on);
   return (
     <main id="main">
       <div class="wrap gmark">
@@ -18,7 +18,7 @@ const Today = ({ on }) => {
             <p>
               바쁜 일상 속 당신의 하루를
               <br />
-              미리 준비해드립니다 :
+              미리 준비해드립니다 :&gt;
             </p>
           </div>
           <div class="week card">
@@ -110,7 +110,7 @@ const Today = ({ on }) => {
         </div>
         <div class="right">
           <div class="weather card">
-            <div class="date">22/11/16수</div>
+            <div class="date">22/11/16 &lt;수&gt;</div>
             <div class="wea">
               <img src={sbc} alt="" />
             </div>
