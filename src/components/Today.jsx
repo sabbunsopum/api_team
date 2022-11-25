@@ -87,9 +87,9 @@ const Today = () => {
   //로딩
   return (
     <main id="main">
-      <div class="wrap gmark">
-        <div class="left">
-          <div class="title">
+      <div className="wrap gmark">
+        <div className="left">
+          <div className="title">
             <h1>OWATD</h1>
             <p>
               바쁜 일상 속 당신의 하루를
@@ -97,13 +97,14 @@ const Today = () => {
               미리 준비해드립니다 :&gt;
             </p>
           </div>
-          <div class="week card">
+          <div className="week card">
             <ul>
               <li>
                 <h3>TODAY</h3>
-                <div class="icon">
+                <div className="icon">
                   <img src={sbc} alt="todayicon" />
                 </div>
+
                 <div class="temp">
                   <span class="high">{tmn[0].fcstValue}</span>
                   <span class="low">{tmx[0].fcstValue}</span>
@@ -111,9 +112,10 @@ const Today = () => {
               </li>
               <li>
                 <h3>THU</h3>
-                <div class="icon">
+                <div className="icon">
                   <img src={sblc} alt="" />
                 </div>
+
                 <div class="temp">
                   <span class="high">{tmn[1].fcstValue}</span>
                   <span class="low">{tmx[1].fcstValue}</span>
@@ -121,9 +123,10 @@ const Today = () => {
               </li>
               <li>
                 <h3>FRI</h3>
-                <div class="icon">
+                <div className="icon">
                   <img src={cld} alt="" />
                 </div>
+
                 <div class="temp">
                   <span class="high">{tmn[2].fcstValue}</span>
                   <span class="low">{tmx[2].fcstValue}</span>
@@ -131,9 +134,10 @@ const Today = () => {
               </li>
               <li>
                 <h3>SAT</h3>
-                <div class="icon">
+                <div className="icon">
                   <img src={cwlr} alt="" />
                 </div>
+
                 <div class="temp">
                   <span class="high">{mid.taMin3}</span>
                   <span class="low">{mid.taMax3}</span>
@@ -141,9 +145,10 @@ const Today = () => {
               </li>
               <li>
                 <h3>SUN</h3>
-                <div class="icon">
+                <div className="icon">
                   <img src={sbsc} alt="" />
                 </div>
+
                 <div class="temp">
                   <span class="high">{mid.taMin4}</span>
                   <span class="low">{mid.taMax4}</span>
@@ -151,36 +156,60 @@ const Today = () => {
               </li>
             </ul>
           </div>
-          <div class="exercise card">
-            <p>오늘 운동할 계획이 있으신가요?</p>
-            <span class="yes">
-              <img src={oh} alt="" />
-            </span>
-            <span class="no">
-              <img src={wh} alt="" />
-            </span>
+
+          <div className="exercise card">
+            <div className="front">
+              <p>오늘 운동할 계획이 있으신가요?</p>
+              <span>
+                <img src={oh} alt="" />
+              </span>
+              <span>
+                <img src={wh} alt="" />
+              </span>
+            </div>
+            {/* <div classNameName="back no">
+              <img src={hh} alt="" />
+              <p>
+                건강한 삶에서 휴식은 필수 ! 하지만 중간중간 스트레칭도 잊지
+                말아주세요 :D
+              </p>
+            </div> */}
+            {/* <div classNameName="back yes">
+              <img src={ex1} alt="" />
+              <p>
+                햇빛이 강하지 않은 하루에요 !<br /> 집 앞 공원에서 배드민턴
+                어때요 ?
+              </p>
+            </div> */}
           </div>
-          <div class="saying card">
+          <div className="saying card">
             <p>인생에서 가장 의미없이 보낸 날은 웃지 않고 보낸 날이다.</p>
-            <span class="man">E. E. 커밍스</span>
+            <span className="man">E. E. 커밍스</span>
           </div>
-          <div class="animal card">
-            <p>
-              키우시는 반려동물을 선택해주세요 !<br />
-              없다면 화분을 눌러주세요 !
-            </p>
-            <input class="gmark" type="text" placeholder="이름이 무엇인가요?" />
-            <span class="dog">
-              <img src={dog} alt="" />
-            </span>
-            <span class="plants">
-              <img src={pp} alt="" />
-            </span>
-            <span class="cat">
-              <img src={bcat} alt="" />
-            </span>
+          <div className="animal card">
+            <div className="front">
+              <p>
+                키우시는 반려동물을 선택해주세요 !<br />
+                없다면 화분을 눌러주세요 !
+              </p>
+              <input
+                className="gmark"
+                type="text"
+                placeholder="이름이 무엇인가요?"
+              />
+              <span className="dog">
+                <img src={dog} alt="" />
+              </span>
+              <span className="plants">
+                <img src={pp} alt="" />
+              </span>
+              <span className="cat">
+                <img src={bcat} alt="" />
+              </span>
+            </div>
           </div>
         </div>
+
         <div class="right">
           <div class="weather card">
             <div class="date">{todaystring} &lt;수&gt;</div>
@@ -193,7 +222,7 @@ const Today = () => {
               <div class="hum">{fcst[10].fcstValue}%</div>
             </div>
           </div>
-          <div class="clothes card">
+          <div className="clothes card">
             <img src={ht} alt="" />
             <p>
               약간은 쌀쌀할 수 있어요 !<br />
