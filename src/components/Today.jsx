@@ -11,8 +11,6 @@ import dog from "../assets/img/animal/Dog.png";
 import bcat from "../assets/img/animal/Black cat.png";
 import wh from "../assets/img/exercise/Waving hand.png";
 import oh from "../assets/img/exercise/OK hand.png";
-import hh from "../assets/img/exercise/Heart hands.png";
-import ex1 from "../assets/img/exercise/배드민턴.png";
 import cld from "../assets/img/weather/Cloud.png";
 import sbsc from "../assets/img/weather/Sun behind small cloud.png";
 import pp from "../assets/img/animal/Potted plant.png";
@@ -55,15 +53,28 @@ const Today = () => {
   //오늘날짜
 
   var weekday = new Array(7);
-  weekday[0] = "Sunday";
-  weekday[1] = "Monday";
-  weekday[2] = "Tuesday";
-  weekday[3] = "Wednesday";
-  weekday[4] = "Thursday";
-  weekday[5] = "Friday";
-  weekday[6] = "Saturday";
+  weekday[0] = "일";
+  weekday[1] = "월";
+  weekday[2] = "화";
+  weekday[3] = "수";
+  weekday[4] = "목";
+  weekday[5] = "금";
+  weekday[6] = "토";
 
-  //요일 구하기
+  let gd = today.getDay();
+
+  var toDow = weekday[gd];
+  var toDow1 = weekday[gd + (gd + 1 > 6 ? -gd + 1 : 1)];
+  var toDow2 = weekday[gd + (gd + 2 > 6 ? -gd + 2 : 2)];
+  var toDow3 = weekday[gd + (gd + 3 > 6 ? -gd + 3 : 3)];
+  var toDow4 = weekday[gd + (gd + 4 > 6 ? -gd + 4 : 4)];
+
+  console.log(toDow);
+  console.log(toDow1);
+  console.log(toDow2);
+  console.log(toDow3);
+  console.log(toDow4);
+  //요일구하기
 
   const [mid, setMid] = useState([]);
   useEffect(() => {
@@ -141,29 +152,13 @@ const Today = () => {
             </ul>
           </div>
           <div class="exercise card">
-            <div className="front">
-              <p>오늘 운동할 계획이 있으신가요?</p>
-              <span class="yes">
-                <img src={oh} alt="" />
-              </span>
-              <span class="no">
-                <img src={wh} alt="" />
-              </span>
-            </div>
-            {/* <div className="back no">
-              <img src={hh} alt="" />
-              <p>
-                건강한 삶에서 휴식은 필수 ! 하지만 중간중간 스트레칭도 잊지
-                말아주세요 :D
-              </p>
-            </div> */}
-            {/* <div className="back yes">
-              <img src={ex1} alt="" />
-              <p>
-                햇빛이 강하지 않은 하루에요 !<br /> 집 앞 공원에서 배드민턴
-                어때요 ?
-              </p>
-            </div> */}
+            <p>오늘 운동할 계획이 있으신가요?</p>
+            <span class="yes">
+              <img src={oh} alt="" />
+            </span>
+            <span class="no">
+              <img src={wh} alt="" />
+            </span>
           </div>
           <div class="saying card">
             <p>인생에서 가장 의미없이 보낸 날은 웃지 않고 보낸 날이다.</p>
