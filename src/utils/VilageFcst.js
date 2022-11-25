@@ -1,7 +1,3 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import Today from "./Today";
-
 // xml을 json으로 변환해주는 xmlToJson함수 선언
 function xmlToJson(xml) {
   // Create the return object
@@ -51,7 +47,7 @@ function xmlToJson(xml) {
 }
 
 //함수선언
-export const getXMLfromAPI = async () => {
+export const getVilageFcst = async () => {
   const url =
     "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
   const authKey =
@@ -67,21 +63,7 @@ export const getXMLfromAPI = async () => {
   const xmlString = await response.text();
   var XmlNode = new DOMParser().parseFromString(xmlString, "text/xml");
   //console.log(xmlToJson(XmlNode));
-  const data = xmlToJson(XmlNode).response.body.items.item;
+  const VilageFcst = xmlToJson(XmlNode).response.body.items.item;
 
-  return data;
+  return VilageFcst;
 };
-
-//함수호출
-//getXMLfromAPI();
-
-const MainConts = () => {
-  const [on, setOn] = useState([]);
-
-  useEffect(() => {
-    getXMLfromAPI().then((data) => setOn(data));
-  }, []);
-  return <Today on={on} />;
-};
-
-export default MainConts;

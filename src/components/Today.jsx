@@ -1,14 +1,31 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { getVilageFcst } from "../utils/VilageFcst";
+import { getMidTa } from "../utils/MidTa";
 import sblc from "../assets/img/weather/Sun behind large cloud.png";
 import cwlr from "../assets/img/weather/Cloud with lightning and rain.png";
 import sbc from "../assets/img/weather/Sun behind cloud.png";
 import dog from "../assets/img/animal/Dog.png";
-import cat from "../assets/img/animal/Black cat.png";
+import bcat from "../assets/img/animal/Black cat.png";
 import wh from "../assets/img/exercise/Waving hand.png";
 import oh from "../assets/img/exercise/OK hand.png";
+import cld from "../assets/img/weather/Cloud.png";
+import sbsc from "../assets/img/weather/Sun behind small cloud.png";
+import pp from "../assets/img/animal/Potted plant.png";
+import ht from "../assets/img/clothes/hoodie.png";
+const Today = () => {
+  const [on, setOn] = useState([]);
+  // console.log(on);
+  useEffect(() => {
+    getVilageFcst().then((VilageFcst) => setOn(VilageFcst));
+  }, []);
 
-const Today = ({ on }) => {
-  //console.log(on);
+  const [mid, setMid] = useState([]);
+  // console.log(mid);
+  useEffect(() => {
+    getMidTa().then((MidTa) => setMid(MidTa));
+  }, []);
+
   return (
     <main id="main">
       <div class="wrap gmark">
@@ -26,7 +43,7 @@ const Today = ({ on }) => {
               <li>
                 <h3>TODAY</h3>
                 <div class="icon">
-                  <img src={sblc} alt="todayicon" />
+                  <img src={sbc} alt="todayicon" />
                 </div>
                 <div class="temp">
                   <span class="high">5</span>
@@ -46,7 +63,7 @@ const Today = ({ on }) => {
               <li>
                 <h3>FRI</h3>
                 <div class="icon">
-                  <img src="./assets/img/weather/Cloud.png" alt="" />
+                  <img src={cld} alt="" />
                 </div>
                 <div class="temp">
                   <span class="high">3</span>
@@ -66,10 +83,7 @@ const Today = ({ on }) => {
               <li>
                 <h3>SUN</h3>
                 <div class="icon">
-                  <img
-                    src="./assets/img/weather/Sun behind small cloud.png"
-                    alt=""
-                  />
+                  <img src={sbsc} alt="" />
                 </div>
                 <div class="temp">
                   <span class="high">8</span>
@@ -101,10 +115,10 @@ const Today = ({ on }) => {
               <img src={dog} alt="" />
             </span>
             <span class="plants">
-              <img src="./assets/img/animal/Potted plant.png" alt="" />
+              <img src={pp} alt="" />
             </span>
             <span class="cat">
-              <img src={cat} alt="" />
+              <img src={bcat} alt="" />
             </span>
           </div>
         </div>
@@ -121,7 +135,7 @@ const Today = ({ on }) => {
             </div>
           </div>
           <div class="clothes card">
-            <img src="./assets/img/clothes/후드티.png" alt="" />
+            <img src={ht} alt="" />
             <p>
               약간은 쌀쌀할 수 있어요 !<br />
               긴팔이나 가디건을 추천드립니다.

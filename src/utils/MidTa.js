@@ -1,7 +1,3 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import Today from "./Today";
-
 // xml을 json으로 변환해주는 xmlToJson함수 선언
 function xmlToJson(xml) {
   // Create the return object
@@ -51,7 +47,7 @@ function xmlToJson(xml) {
 }
 
 //함수선언
-export const getXMLfromAPI = async () => {
+export const getMidTa = async () => {
   const url = "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa";
   const authKey =
     "WcttXLuCO1vJnUBediRRYQz7BP%2BhjkelbvTU0PH0D5tQmCkgRc3%2FQkw9HLvyKjZfJZZPJUJYlYvMBHZwWoBNTA%3D%3D";
@@ -59,28 +55,14 @@ export const getXMLfromAPI = async () => {
     url +
     "?serviceKey=" +
     authKey +
-    "&&numOfRows=10&pageNo=1&regId=11D20501&tmFc=201404080600";
+    "&&numOfRows=10&pageNo=1&regId=11D20501&tmFc=202211250600";
 
   // async와 await을 통해 바로 XML을 JSON으로 변환
   const response = await fetch(reqURL);
   const xmlString = await response.text();
   var XmlNode = new DOMParser().parseFromString(xmlString, "text/xml");
   //console.log(xmlToJson(XmlNode));
-  const data = xmlToJson(XmlNode).response.body.items.item;
+  const MidTa = xmlToJson(XmlNode).response.body.items.item;
 
-  return data;
+  return MidTa;
 };
-
-//함수호출
-//getXMLfromAPI();
-
-const MidService = () => {
-  const [mid, setOn] = useState([]);
-
-  useEffect(() => {
-    getXMLfromAPI().then((data) => setOn(data));
-  }, []);
-  return <Today mid={mid} />;
-};
-
-export default MidService;
