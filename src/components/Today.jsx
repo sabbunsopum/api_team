@@ -18,7 +18,7 @@ import ht from "../assets/img/clothes/hoodie.png";
 
 const Today = () => {
   const [fcst, setFcst] = useState([]);
-  // console.log(fcst);
+  console.log(fcst);
   useEffect(() => {
     getVilageFcst().then((VilageFcst) => setFcst(VilageFcst));
   }, []);
@@ -135,8 +135,8 @@ const Today = () => {
             </div>
             <tem class="tem">{fcst[0].fcstValue}℃</tem>
             <div class="more">
-              <div class="wind">19km/h</div>
-              <div class="hum">22%</div>
+              <div class="wind">{fcst[2].fcstValue}m/s</div>
+              <div class="hum">{fcst[10].fcstValue}%</div>
             </div>
           </div>
           <div class="clothes card">
