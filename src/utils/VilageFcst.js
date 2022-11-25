@@ -56,7 +56,7 @@ export const getVilageFcst = async () => {
     url +
     "?serviceKey=" +
     authKey +
-    "&numOfRows=809&pageNo=1&base_date=20221123&base_time=0500&nx=55&ny=127";
+    "&numOfRows=12&base_date=20221125&base_time=1100&nx=57&ny=122";
 
   // async와 await을 통해 바로 XML을 JSON으로 변환
   const response = await fetch(reqURL);

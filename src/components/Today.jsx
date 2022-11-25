@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { getVilageFcst } from "../utils/VilageFcst";
 import { getMidTa } from "../utils/MidTa";
+import Loader from "./Loader";
+
 import sblc from "../assets/img/weather/Sun behind large cloud.png";
 import cwlr from "../assets/img/weather/Cloud with lightning and rain.png";
 import sbc from "../assets/img/weather/Sun behind cloud.png";
@@ -13,11 +15,12 @@ import cld from "../assets/img/weather/Cloud.png";
 import sbsc from "../assets/img/weather/Sun behind small cloud.png";
 import pp from "../assets/img/animal/Potted plant.png";
 import ht from "../assets/img/clothes/hoodie.png";
+
 const Today = () => {
-  const [on, setOn] = useState([]);
-  // console.log(on);
+  const [fcst, setFcst] = useState([]);
+  // console.log(fcst);
   useEffect(() => {
-    getVilageFcst().then((VilageFcst) => setOn(VilageFcst));
+    getVilageFcst().then((VilageFcst) => setFcst(VilageFcst));
   }, []);
 
   const [mid, setMid] = useState([]);
@@ -26,6 +29,8 @@ const Today = () => {
     getMidTa().then((MidTa) => setMid(MidTa));
   }, []);
 
+  if (!fcst?.length) return <Loader />;
+  //로딩
   return (
     <main id="main">
       <div class="wrap gmark">
@@ -128,7 +133,7 @@ const Today = () => {
             <div class="wea">
               <img src={sbc} alt="" />
             </div>
-            <tem class="tem">22℃</tem>
+            <tem class="tem">{fcst[0].fcstValue}℃</tem>
             <div class="more">
               <div class="wind">19km/h</div>
               <div class="hum">22%</div>
