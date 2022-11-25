@@ -45,6 +45,15 @@ function xmlToJson(xml) {
   }
   return obj;
 }
+var today = new Date();
+
+var year = today.getFullYear();
+var month = ("0" + (today.getMonth() + 1)).slice(-2);
+var day = ("0" + today.getDate()).slice(-2);
+var todaystring = year + month + day;
+
+//console.log(todaystring);
+//오늘날짜
 
 //함수선언
 export const getMidTa = async () => {
@@ -55,13 +64,12 @@ export const getMidTa = async () => {
     url +
     "?serviceKey=" +
     authKey +
-    "&&numOfRows=10&pageNo=1&regId=11D20501&tmFc=202211250600";
+    `&numOfRows=10&pageNo=1&regId=11B10101&tmFc=${todaystring}0600`;
 
   // async와 await을 통해 바로 XML을 JSON으로 변환
   const response = await fetch(reqURL);
   const xmlString = await response.text();
   var XmlNode = new DOMParser().parseFromString(xmlString, "text/xml");
-  //console.log(xmlToJson(XmlNode));
   const MidTa = xmlToJson(XmlNode).response.body.items.item;
 
   return MidTa;

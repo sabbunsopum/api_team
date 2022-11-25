@@ -57,6 +57,7 @@ body {
     justify-content: space-between;
 }
 
+/* title */
 .left .title {
     width: 49%;
     height: 38%;
@@ -78,6 +79,7 @@ body {
     line-height: 1.4;
 }
 
+/* week weather */
 .left .week {
     width: 49%;
     height: 38%;
@@ -148,10 +150,12 @@ body {
     border-radius: 50px;
 }
 
+/* exercise */
 .left .exercise {
     width: 49%;
     height: 28%;
     box-sizing: border-box;
+    text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -159,13 +163,12 @@ body {
 }
 
 .exercise .front p {
-    text-align: center;
     font-size: 18px;
     margin-bottom: 20px;
 }
 
 .exercise .front span img {
-    width: 70px;
+    width: 5vw;
     background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
     border-radius: 30px;
     padding: 15px;
@@ -196,6 +199,7 @@ body {
     line-height: 1.4;
 }
 
+/* saying */
 .left .saying {
     width: 49%;
     height: 18%;
@@ -214,6 +218,7 @@ body {
     font-weight: 300;
 }
 
+/* animal */
 .left .animal {
     width: 100%;
     height: 28%;
@@ -222,13 +227,13 @@ body {
     position: relative;
 }
 
-.animal p {
+.animal .front p {
     line-height: 1.4;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.animal input {
+.animal .front input {
     border: 0;
     border-radius: 50px;
     font-size: 18px;
@@ -241,14 +246,14 @@ input::placeholder {
     color: #3878d84f;
 }
 
-.animal .dog {
+.animal .front .dog {
     position: absolute;
     left: 10%;
     bottom: -2px;
     width: 110px;
 }
 
-.animal .plants {
+.animal .front .plants {
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -256,13 +261,14 @@ input::placeholder {
     width: 50px;
 }
 
-.animal .cat {
+.animal .front .cat {
     position: absolute;
     right: 10%;
     bottom: 0;
     width: 110px;
 }
 
+/* right */
 .right {
     width: 43.4%;
     box-sizing: border-box;
@@ -271,6 +277,7 @@ input::placeholder {
     justify-content: space-between;
 }
 
+/* weather */
 .right .weather {
     width: 100%;
     height: 68%;
@@ -319,6 +326,7 @@ input::placeholder {
     padding-left: 30px;
 }
 
+/* clothes */
 .right .clothes {
     width: 60%;
     height: 28%;
