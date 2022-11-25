@@ -17,19 +17,60 @@ import pp from "../assets/img/animal/Potted plant.png";
 import ht from "../assets/img/clothes/hoodie.png";
 
 const Today = () => {
-  const [fcst, setFcst] = useState([]);
-  console.log(fcst);
+  const [fcst, setVilage] = useState([]);
+
   useEffect(() => {
-    getVilageFcst().then((VilageFcst) => setFcst(VilageFcst));
+    getVilageFcst().then((VilageFcst) => setVilage(VilageFcst));
   }, []);
+  //단기예보 어제날짜23시
+  //console.log(fcst);
+
+  let tmn = [];
+  for (let i = 0; i < fcst.length; i++) {
+    if (fcst[i].category === "TMN") {
+      tmn.push(fcst[i]);
+    }
+  }
+  //console.log(tmn);
+  //최저기온
+
+  let tmx = [];
+  for (let i = 0; i < fcst.length; i++) {
+    if (fcst[i].category === "TMX") {
+      tmx.push(fcst[i]);
+    }
+  }
+  //console.log(tmx);
+  //최고기온
+
+  var today = new Date();
+
+  var year = today.getFullYear();
+  var month = ("0" + (today.getMonth() + 1)).slice(-2);
+  var day = ("0" + today.getDate()).slice(-2);
+
+  var todaystring = year + month + day;
+  //오늘날짜
+
+  var weekday = new Array(7);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
+
+  //요일 구하기
 
   const [mid, setMid] = useState([]);
-  // console.log(mid);
   useEffect(() => {
     getMidTa().then((MidTa) => setMid(MidTa));
   }, []);
+  //중기예보
+  //console.log(mid);
 
-  if (!fcst?.length) return <Loader />;
+  if (!fcst?.length && !mid?.length) return <Loader />;
   //로딩
   return (
     <main id="main">
@@ -51,8 +92,8 @@ const Today = () => {
                   <img src={sbc} alt="todayicon" />
                 </div>
                 <div class="temp">
-                  <span class="high">5</span>
-                  <span class="low">12</span>
+                  <span class="high">{tmn[0].fcstValue}</span>
+                  <span class="low">{tmx[0].fcstValue}</span>
                 </div>
               </li>
               <li>
@@ -61,8 +102,8 @@ const Today = () => {
                   <img src={sblc} alt="" />
                 </div>
                 <div class="temp">
-                  <span class="high">4</span>
-                  <span class="low">14</span>
+                  <span class="high">{tmn[1].fcstValue}</span>
+                  <span class="low">{tmx[1].fcstValue}</span>
                 </div>
               </li>
               <li>
@@ -71,8 +112,8 @@ const Today = () => {
                   <img src={cld} alt="" />
                 </div>
                 <div class="temp">
-                  <span class="high">3</span>
-                  <span class="low">15</span>
+                  <span class="high">{tmn[2].fcstValue}</span>
+                  <span class="low">{tmx[2].fcstValue}</span>
                 </div>
               </li>
               <li>
@@ -81,8 +122,8 @@ const Today = () => {
                   <img src={cwlr} alt="" />
                 </div>
                 <div class="temp">
-                  <span class="high">6</span>
-                  <span class="low">14</span>
+                  <span class="high">{mid.taMin3}</span>
+                  <span class="low">{mid.taMax3}</span>
                 </div>
               </li>
               <li>
@@ -91,8 +132,8 @@ const Today = () => {
                   <img src={sbsc} alt="" />
                 </div>
                 <div class="temp">
-                  <span class="high">8</span>
-                  <span class="low">16</span>
+                  <span class="high">{mid.taMin4}</span>
+                  <span class="low">{mid.taMax4}</span>
                 </div>
               </li>
             </ul>
@@ -129,13 +170,13 @@ const Today = () => {
         </div>
         <div class="right">
           <div class="weather card">
-            <div class="date">22/11/16 &lt;수&gt;</div>
+            <div class="date">{todaystring} &lt;수&gt;</div>
             <div class="wea">
               <img src={sbc} alt="" />
             </div>
             <tem class="tem">{fcst[0].fcstValue}℃</tem>
             <div class="more">
-              <div class="wind">{fcst[2].fcstValue}m/s</div>
+              <div class="wind">{fcst[4].fcstValue}m/s</div>
               <div class="hum">{fcst[10].fcstValue}%</div>
             </div>
           </div>

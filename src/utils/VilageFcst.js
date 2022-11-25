@@ -46,6 +46,17 @@ function xmlToJson(xml) {
   return obj;
 }
 
+var today = new Date();
+
+var year = today.getFullYear();
+var month = ("0" + (today.getMonth() + 1)).slice(-2);
+var day = ("0" + (today.getDate() - 1)).slice(-2);
+
+var yesterday = year + month + day;
+
+// console.log(yesterday);
+//어제날짜
+
 //함수선언
 export const getVilageFcst = async () => {
   const url =
@@ -56,13 +67,12 @@ export const getVilageFcst = async () => {
     url +
     "?serviceKey=" +
     authKey +
-    "&numOfRows=12&base_date=20221125&base_time=1100&nx=57&ny=122";
+    `&numOfRows=1000&base_date=${yesterday}&base_time=2300&nx=57&ny=122`;
 
   // async와 await을 통해 바로 XML을 JSON으로 변환
   const response = await fetch(reqURL);
   const xmlString = await response.text();
   var XmlNode = new DOMParser().parseFromString(xmlString, "text/xml");
-  //console.log(xmlToJson(XmlNode));
   const VilageFcst = xmlToJson(XmlNode).response.body.items.item;
 
   return VilageFcst;
