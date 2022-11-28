@@ -18,6 +18,10 @@ import sbsc from "../assets/img/weather/Sun behind small cloud.png";
 import pp from "../assets/img/animal/Potted plant.png";
 import ht from "../assets/img/clothes/hoodie.png";
 
+import { say } from "../utils/say";
+
+let saya = Math.floor(Math.random() * 10);
+
 const Today = () => {
   const [ultra, setUltra] = useState([]);
 
@@ -207,8 +211,8 @@ const Today = () => {
             </div> */}
           </div>
           <div className="saying card">
-            <p>인생에서 가장 의미없이 보낸 날은 웃지 않고 보낸 날이다.</p>
-            <span className="man">E. E. 커밍스</span>
+            <p>{say[saya].cont}</p>
+            <span className="man">{say[saya].name}</span>
           </div>
           <div className="animal card">
             <div className="front">
