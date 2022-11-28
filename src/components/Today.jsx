@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { getVilageFcst } from "../utils/VilageFcst";
 import { getMidTa } from "../utils/MidTa";
+import { getUltraSrtFcst } from "../utils/UltraSrtFcst";
+
 import Loader from "./Loader";
 
 import sblc from "../assets/img/weather/Sun behind large cloud.png";
@@ -17,6 +19,40 @@ import pp from "../assets/img/animal/Potted plant.png";
 import ht from "../assets/img/clothes/hoodie.png";
 
 const Today = () => {
+  const [ultra, setUltra] = useState([]);
+
+  useEffect(() => {
+    getUltraSrtFcst().then((UltraSrtFcst) => setUltra(UltraSrtFcst));
+  }, []);
+  //console.log(ultra);
+
+  let t1h = [];
+  for (let i = 0; i < ultra.length; i++) {
+    if (ultra[i].category === "T1H") {
+      t1h.push(ultra[i]);
+    }
+  }
+  //console.log(t1h);
+  //t1x
+
+  let reh = [];
+  for (let i = 0; i < ultra.length; i++) {
+    if (ultra[i].category === "REH") {
+      reh.push(ultra[i]);
+    }
+  }
+  //console.log(REH);
+  //습도
+
+  let wsd = [];
+  for (let i = 0; i < ultra.length; i++) {
+    if (ultra[i].category === "WSD") {
+      wsd.push(ultra[i]);
+    }
+  }
+  //console.log(WSD);
+  //풍속
+
   const [fcst, setVilage] = useState([]);
 
   useEffect(() => {
@@ -48,21 +84,21 @@ const Today = () => {
   var year = today.getFullYear();
   var month = ("0" + (today.getMonth() + 1)).slice(-2);
   var day = ("0" + today.getDate()).slice(-2);
-  let gd = today.getDate();
+
   var todaystring = year + month + day;
   //오늘날짜
 
-  const weekday = ["일", "월", "화", "수", "목", "금", "토"];
+  var weekday = new Array(7);
+  weekday[0] = "Sun";
+  weekday[1] = "Mon";
+  weekday[2] = "Tue";
+  weekday[3] = "Wed";
+  weekday[4] = "Thu";
+  weekday[5] = "Fri";
+  weekday[6] = "Sat";
 
-  // weekday[5+1] > 6 ? -gd-1 : +1   6
-  // weekday[5+2] > 6 ? -gd-0 : +2   0
-  // weekday[5+3] > 6 ? -gd-1 : +3   1
-  // weekday[5+4] > 6 ? -gd-2 : +4   2
-  // weekday[5+5] > 6 ? -gd-2 : +5   3
-  // weekday[5+6] > 6 ? -gd-2 : +6   4
-  // weekday[5+7] > 6 ? -gd-2 : +7   5
-
-  //요일구하기
+  let gd = today.getDay();
+  console.log(weekday[gd]);
 
   const [mid, setMid] = useState([]);
   useEffect(() => {
@@ -70,7 +106,7 @@ const Today = () => {
   }, []);
   //중기예보
   //console.log(mid);
-
+  if (!ultra?.length) return <Loader />;
   if (!fcst?.length && !mid?.length) return <Loader />;
   //로딩
   return (
@@ -88,7 +124,7 @@ const Today = () => {
           <div className="week card">
             <ul>
               <li>
-                <h3>TODAY</h3>
+                <h3>{weekday[gd]}</h3>
                 <div className="icon">
                   <img src={sbc} alt="todayicon" />
                 </div>
@@ -99,7 +135,7 @@ const Today = () => {
                 </div>
               </li>
               <li>
-                <h3>THU</h3>
+                <h3>{weekday[gd + 1]}</h3>
                 <div className="icon">
                   <img src={sblc} alt="" />
                 </div>
@@ -110,7 +146,7 @@ const Today = () => {
                 </div>
               </li>
               <li>
-                <h3>FRI</h3>
+                <h3>{weekday[gd + 2]}</h3>
                 <div className="icon">
                   <img src={cld} alt="" />
                 </div>
@@ -121,7 +157,7 @@ const Today = () => {
                 </div>
               </li>
               <li>
-                <h3>SAT</h3>
+                <h3>{weekday[gd + 3]}</h3>
                 <div className="icon">
                   <img src={cwlr} alt="" />
                 </div>
@@ -132,7 +168,7 @@ const Today = () => {
                 </div>
               </li>
               <li>
-                <h3>SUN</h3>
+                <h3>{weekday[gd + 4]}</h3>
                 <div className="icon">
                   <img src={sbsc} alt="" />
                 </div>
@@ -200,14 +236,16 @@ const Today = () => {
 
         <div class="right">
           <div class="weather card">
-            <div class="date">{todaystring} &lt;수&gt;</div>
+            <div class="date">
+              {todaystring} &lt;{weekday[gd]}&gt;
+            </div>
             <div class="wea">
               <img src={sbc} alt="" />
             </div>
-            <tem class="tem">{fcst[0].fcstValue}℃</tem>
+            <tem class="tem">{t1h[0].fcstValue}℃</tem>
             <div class="more">
-              <div class="wind">{fcst[4].fcstValue}m/s</div>
-              <div class="hum">{fcst[10].fcstValue}%</div>
+              <div class="wind">{wsd[0].fcstValue}m/s</div>
+              <div class="hum">{reh[0].fcstValue}%</div>
             </div>
           </div>
           <div className="clothes card">
