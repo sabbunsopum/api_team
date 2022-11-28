@@ -21,6 +21,7 @@ import ht from "../assets/img/clothes/hoodie.png";
 import { say } from "../utils/say";
 
 let saya = Math.floor(Math.random() * 10);
+console.log(saya);
 
 const Today = () => {
   const [ultra, setUltra] = useState([]);
@@ -102,7 +103,7 @@ const Today = () => {
   weekday[6] = "Sat";
 
   let gd = today.getDay();
-  console.log(weekday[gd]);
+  // console.log(weekday[gd]);
 
   const [mid, setMid] = useState([]);
   useEffect(() => {

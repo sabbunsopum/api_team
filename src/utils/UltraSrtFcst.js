@@ -51,7 +51,8 @@ var today = new Date();
 var year = today.getFullYear();
 var month = ("0" + (today.getMonth() + 1)).slice(-2);
 var day = ("0" + today.getDate()).slice(-2);
-
+var hours = today.getHours() - 1 + "30";
+console.log(hours);
 var todaystring = year + month + day;
 
 //console.log(todaystring);
@@ -66,7 +67,7 @@ export const getUltraSrtFcst = async () => {
     url +
     "?serviceKey=" +
     authKey +
-    `&base_date=${todaystring}&base_time=1400&nx=57&ny=122&numOfRows=100`;
+    `&base_date=${todaystring}&base_time=${hours}&nx=57&ny=122&numOfRows=100`;
 
   // async와 await을 통해 바로 XML을 JSON으로 변환
   const response = await fetch(reqURL);
