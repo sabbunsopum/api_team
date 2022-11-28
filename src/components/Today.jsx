@@ -48,32 +48,20 @@ const Today = () => {
   var year = today.getFullYear();
   var month = ("0" + (today.getMonth() + 1)).slice(-2);
   var day = ("0" + today.getDate()).slice(-2);
-
+  let gd = today.getDate();
   var todaystring = year + month + day;
   //오늘날짜
 
-  var weekday = new Array(7);
-  weekday[0] = "일";
-  weekday[1] = "월";
-  weekday[2] = "화";
-  weekday[3] = "수";
-  weekday[4] = "목";
-  weekday[5] = "금";
-  weekday[6] = "토";
+  const weekday = ["일", "월", "화", "수", "목", "금", "토"];
 
-  let gd = today.getDay();
+  // weekday[5+1] > 6 ? -gd-1 : +1   6
+  // weekday[5+2] > 6 ? -gd-0 : +2   0
+  // weekday[5+3] > 6 ? -gd-1 : +3   1
+  // weekday[5+4] > 6 ? -gd-2 : +4   2
+  // weekday[5+5] > 6 ? -gd-2 : +5   3
+  // weekday[5+6] > 6 ? -gd-2 : +6   4
+  // weekday[5+7] > 6 ? -gd-2 : +7   5
 
-  var toDow = weekday[gd];
-  var toDow1 = weekday[gd + (gd + 1 > 6 ? -gd + 1 : 1)];
-  var toDow2 = weekday[gd + (gd + 2 > 6 ? -gd + 2 : 2)];
-  var toDow3 = weekday[gd + (gd + 3 > 6 ? -gd + 3 : 3)];
-  var toDow4 = weekday[gd + (gd + 4 > 6 ? -gd + 4 : 4)];
-
-  console.log(toDow);
-  console.log(toDow1);
-  console.log(toDow2);
-  console.log(toDow3);
-  console.log(toDow4);
   //요일구하기
 
   const [mid, setMid] = useState([]);
@@ -106,8 +94,8 @@ const Today = () => {
                 </div>
 
                 <div class="temp">
-                  <span class="high">{tmn[0].fcstValue}</span>
-                  <span class="low">{tmx[0].fcstValue}</span>
+                  <span class="high">{tmn[0].fcstValue.slice(0, -2)}</span>
+                  <span class="low">{tmx[0].fcstValue.slice(0, -2)}</span>
                 </div>
               </li>
               <li>
@@ -117,8 +105,8 @@ const Today = () => {
                 </div>
 
                 <div class="temp">
-                  <span class="high">{tmn[1].fcstValue}</span>
-                  <span class="low">{tmx[1].fcstValue}</span>
+                  <span class="high">{tmn[1].fcstValue.slice(0, -2)}</span>
+                  <span class="low">{tmx[1].fcstValue.slice(0, -2)}</span>
                 </div>
               </li>
               <li>
@@ -128,8 +116,8 @@ const Today = () => {
                 </div>
 
                 <div class="temp">
-                  <span class="high">{tmn[2].fcstValue}</span>
-                  <span class="low">{tmx[2].fcstValue}</span>
+                  <span class="high">{tmn[2].fcstValue.slice(0, -2)}</span>
+                  <span class="low">{tmx[2].fcstValue.slice(0, -2)}</span>
                 </div>
               </li>
               <li>
