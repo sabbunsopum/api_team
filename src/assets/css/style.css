@@ -411,4 +411,11 @@ input::placeholder {
     .right .weather .tem{
         font-size: 8vw;
     }
+    .clothes img{
+        width: 100%;
+    }
+    .animal input{
+        width: 30%;
+        font-size: 1em;
+    }
 }
