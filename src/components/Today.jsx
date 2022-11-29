@@ -23,6 +23,7 @@ import { say } from "../utils/say";
 
 let saya = Math.floor(Math.random() * 10);
 // console.log(saya);
+// 랜덤 명언
 
 const Today = () => {
   const [ultra, setUltra] = useState([]);
@@ -31,6 +32,7 @@ const Today = () => {
     getUltraSrtFcst().then((UltraSrtFcst) => setUltra(UltraSrtFcst));
   }, []);
   //console.log(ultra);
+  //초단기예보
 
   let t1h = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -39,6 +41,7 @@ const Today = () => {
     }
   }
   //console.log(t1h);
+  //현재기온
 
   let sky = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -46,7 +49,8 @@ const Today = () => {
       sky.push(ultra[i]);
     }
   }
-  //console.log(sky);
+  console.log(sky);
+  //하늘상황
 
   let pty = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -54,7 +58,8 @@ const Today = () => {
       pty.push(ultra[i]);
     }
   }
-  //console.log(pty);
+  console.log(pty);
+  //강수상황
 
   let reh = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -63,7 +68,7 @@ const Today = () => {
     }
   }
   //console.log(REH);
-  //습도
+  //현재습도
 
   let wsd = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -72,7 +77,7 @@ const Today = () => {
     }
   }
   //console.log(WSD);
-  //풍속
+  //현재풍속
 
   const [fcst, setVilage] = useState([]);
 
@@ -88,8 +93,8 @@ const Today = () => {
       tmn.push(fcst[i]);
     }
   }
-  console.log(tmn);
-  //최저기온
+  //console.log(tmn);
+  //단기일별최저기온~3day
 
   let tmx = [];
   for (let i = 0; i < fcst.length; i++) {
@@ -97,8 +102,8 @@ const Today = () => {
       tmx.push(fcst[i]);
     }
   }
-  console.log(tmx);
-  //최고기온
+  //console.log(tmx);
+  //단기일별최고기온~3day
 
   var today = new Date();
 
@@ -124,6 +129,7 @@ const Today = () => {
 
   let gd = today.getDay();
   // console.log(weekday[gd]);
+  //요일구하기
 
   function doAction() {
     alert("이름을 알려주세요");
@@ -133,7 +139,7 @@ const Today = () => {
   useEffect(() => {
     getMidTa().then((MidTa) => setMid(MidTa));
   }, []);
-  //중기예보
+  //중기예보 3~10일 기온
   //console.log(mid);
   if (!ultra?.length) return <Loader />;
   if (!fcst?.length && !mid?.length) return <Loader />;
