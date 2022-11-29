@@ -46,7 +46,7 @@ const Today = () => {
       sky.push(ultra[i]);
     }
   }
-  console.log(sky);
+  //console.log(sky);
 
   let pty = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -54,7 +54,7 @@ const Today = () => {
       pty.push(ultra[i]);
     }
   }
-  console.log(pty);
+  //console.log(pty);
 
   let reh = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -88,7 +88,7 @@ const Today = () => {
       tmn.push(fcst[i]);
     }
   }
-  //console.log(tmn);
+  console.log(tmn);
   //최저기온
 
   let tmx = [];
@@ -97,7 +97,7 @@ const Today = () => {
       tmx.push(fcst[i]);
     }
   }
-  //console.log(tmx);
+  console.log(tmx);
   //최고기온
 
   var today = new Date();
