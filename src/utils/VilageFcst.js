@@ -60,7 +60,7 @@ var yesterday = year + month + day;
 //함수선언
 export const getVilageFcst = async () => {
   const url =
-    "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
+    "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
   const authKey =
     "WcttXLuCO1vJnUBediRRYQz7BP%2BhjkelbvTU0PH0D5tQmCkgRc3%2FQkw9HLvyKjZfJZZPJUJYlYvMBHZwWoBNTA%3D%3D";
   const reqURL =
