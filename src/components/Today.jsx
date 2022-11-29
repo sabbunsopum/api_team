@@ -140,6 +140,10 @@ const Today = () => {
   //로딩
   return (
     <main id="main">
+      <meta
+        http-equiv="Content-Security-Policy"
+        content="upgrade-insecure-requests"
+      ></meta>
       <div className="wrap gmark">
         <div className="left">
           <div className="title">
