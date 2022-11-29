@@ -10,20 +10,22 @@ import Loader from "./Loader";
 import sblc from "../assets/img/weather/Sun behind large cloud.png";
 import cwlr from "../assets/img/weather/Cloud with lightning and rain.png";
 import sbc from "../assets/img/weather/Sun behind cloud.png";
-import dog from "../assets/img/animal/Dog.png";
-import bcat from "../assets/img/animal/Black cat.png";
+// import dog from "../assets/img/animal/Dog.png";
+// import bcat from "../assets/img/animal/Black cat.png";
 import wh from "../assets/img/exercise/Waving hand.png";
 import oh from "../assets/img/exercise/OK hand.png";
 import cld from "../assets/img/weather/Cloud.png";
 import sbsc from "../assets/img/weather/Sun behind small cloud.png";
-import pp from "../assets/img/animal/Potted plant.png";
+// import pp from "../assets/img/animal/Potted plant.png";
+import tree from "../assets/img/animal/tree.png";
+import blossom from "../assets/img/animal/Blossom.png";
+import dog2 from "../assets/img/animal/Guide dog.png";
 import ht from "../assets/img/clothes/hoodie.png";
 
 import { say } from "../utils/say";
 
 let saya = Math.floor(Math.random() * 10);
 // console.log(saya);
-// 랜덤 명언
 
 const Today = () => {
   const [ultra, setUltra] = useState([]);
@@ -32,7 +34,6 @@ const Today = () => {
     getUltraSrtFcst().then((UltraSrtFcst) => setUltra(UltraSrtFcst));
   }, []);
   //console.log(ultra);
-  //초단기예보
 
   let t1h = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -41,7 +42,6 @@ const Today = () => {
     }
   }
   //console.log(t1h);
-  //현재기온
 
   let sky = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -49,8 +49,7 @@ const Today = () => {
       sky.push(ultra[i]);
     }
   }
-  console.log(sky);
-  //하늘상황
+  //console.log(sky);
 
   let pty = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -58,8 +57,7 @@ const Today = () => {
       pty.push(ultra[i]);
     }
   }
-  console.log(pty);
-  //강수상황
+  //console.log(pty);
 
   let reh = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -68,7 +66,7 @@ const Today = () => {
     }
   }
   //console.log(REH);
-  //현재습도
+  //습도
 
   let wsd = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -77,7 +75,7 @@ const Today = () => {
     }
   }
   //console.log(WSD);
-  //현재풍속
+  //풍속
 
   const [fcst, setVilage] = useState([]);
 
@@ -93,8 +91,8 @@ const Today = () => {
       tmn.push(fcst[i]);
     }
   }
-  //console.log(tmn);
-  //단기일별최저기온~3day
+  console.log(tmn);
+  //최저기온
 
   let tmx = [];
   for (let i = 0; i < fcst.length; i++) {
@@ -102,8 +100,8 @@ const Today = () => {
       tmx.push(fcst[i]);
     }
   }
-  //console.log(tmx);
-  //단기일별최고기온~3day
+  console.log(tmx);
+  //최고기온
 
   var today = new Date();
 
@@ -129,7 +127,6 @@ const Today = () => {
 
   let gd = today.getDay();
   // console.log(weekday[gd]);
-  //요일구하기
 
   function doAction() {
     alert("이름을 알려주세요");
@@ -139,7 +136,7 @@ const Today = () => {
   useEffect(() => {
     getMidTa().then((MidTa) => setMid(MidTa));
   }, []);
-  //중기예보 3~10일 기온
+  //중기예보
   //console.log(mid);
   if (!ultra?.length) return <Loader />;
   if (!fcst?.length && !mid?.length) return <Loader />;
@@ -250,7 +247,7 @@ const Today = () => {
             <span className="man">{say[saya].name}</span>
           </div>
           <div className="animal card">
-            <div className="front">
+            {/* <div className="front">
               <p>
                 키우시는 반려동물을 선택해주세요 !<br />
                 없다면 화분을 눌러주세요 !
@@ -275,8 +272,20 @@ const Today = () => {
                   <img src={bcat} alt="" />
                 </button>
               </span>
+            </div> */}
+            <div className="back dog">
+              <div className="bg">
+                <img className="i1" src={tree} alt="" />
+                <img className="i2" src={blossom} alt="" />
+                <img className="i3" src={tree} alt="" />
+                <img className="i4" src={dog2} alt="" />
+                <img className="i5" src={tree} alt="" />
+              </div>
+              <p>
+                ‘ㅇㅇ’와 산책하기 좋은 날이에요 :D 다만, 늦은 시간에는 긴팔이나
+                가디건을 챙기는 것을 추천드려요 !
+              </p>
             </div>
-            <div className="back dog"></div>
           </div>
         </div>
 
