@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useState, useEffect } from "react";
 import { getVilageFcst } from "../utils/VilageFcst";
 import { getMidTa } from "../utils/MidTa";
@@ -124,6 +125,10 @@ const Today = () => {
   let gd = today.getDay();
   // console.log(weekday[gd]);
 
+  function doAction() {
+    alert("이름을 알려주세요");
+  }
+
   const [mid, setMid] = useState([]);
   useEffect(() => {
     getMidTa().then((MidTa) => setMid(MidTa));
@@ -246,13 +251,19 @@ const Today = () => {
                 placeholder="이름이 무엇인가요?"
               />
               <span className="dog">
-                <img src={dog} alt="" />
+                <button type="submit" onClick={doAction} className="tipBtn">
+                  <img src={dog} alt="" />
+                </button>
               </span>
               <span className="plants">
-                <img src={pp} alt="" />
+                <button type="submit" onClick={doAction} className="tipBtn">
+                  <img src={pp} alt="" />
+                </button>
               </span>
               <span className="cat">
-                <img src={bcat} alt="" />
+                <button type="submit" onClick={doAction} className="tipBtn">
+                  <img src={bcat} alt="" />
+                </button>
               </span>
             </div>
           </div>

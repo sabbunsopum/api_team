@@ -31,7 +31,10 @@ body {
     /* cursor: pointer; */
     transition: all 0.3s;
 }
-
+button{
+    background-color: transparent;
+    cursor: pointer;
+}
 .card::before {
     position: absolute;
     width: 100%;
@@ -42,6 +45,7 @@ body {
     background: url(../img/card.png);
     opacity: 0.05;
     border-radius: 30px;
+    z-index: -1;
 }
 
 .card:hover {
