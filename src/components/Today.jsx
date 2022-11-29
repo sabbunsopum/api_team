@@ -29,7 +29,7 @@ const Today = () => {
   useEffect(() => {
     getUltraSrtFcst().then((UltraSrtFcst) => setUltra(UltraSrtFcst));
   }, []);
-  console.log(ultra);
+  //console.log(ultra);
 
   let t1h = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -45,7 +45,7 @@ const Today = () => {
       sky.push(ultra[i]);
     }
   }
-  //console.log(sky);
+  console.log(sky);
 
   let pty = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -53,7 +53,7 @@ const Today = () => {
       pty.push(ultra[i]);
     }
   }
-  //console.log(pty);
+  console.log(pty);
 
   let reh = [];
   for (let i = 0; i < ultra.length; i++) {

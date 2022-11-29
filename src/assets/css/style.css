@@ -161,6 +161,7 @@ body {
 .exercise p {
     text-align: center;
     font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .exercise span img {
@@ -310,4 +311,68 @@ input::placeholder {
 
 .clothes img {
     width: 180px;
+}
+
+@media(max-width:900px){
+    .left .title {
+        width: 100%;
+        height: 15%;
+    }
+    .left .week{
+        width: 100%;
+        height: 24%;
+    }
+    .left .title h1{
+        font-size: 5vw;
+    }
+    .left .title p{
+        font-size: 2.5vw;
+    }
+    .weather .wea img {
+        width: 25vw;
+        opacity: 0.9;
+    }
+    .right .clothes {
+        width: 100%;
+       font-size: 2vw;
+
+    }
+    .left .exercise .front{
+        text-align: center;
+        
+    }
+    .left .exercise span{
+    }
+    .left .exercise span img{
+        width: 5vw;
+        margin: 1vw;
+        padding: 1vw;
+   
+    }
+    .left .exercise p {
+        font-size: 2vw;
+    }
+    .left .saying {
+        height: 28%;
+        font-size: 2vw;
+    }
+    .left .saying .man{
+        font-size: 2vw;
+    }
+    .left .animal {
+       font-size: 2vw;
+    }
+    .animal input{
+        width: 50%;
+        font-size: 2vw;
+    }
+    .right .weather{
+        height: 69%;
+    }
+    .animal .cat{
+        width: 20%;
+    }
+    .animal .dog{
+        width: 20%;
+    }
 }
