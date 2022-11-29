@@ -21,7 +21,7 @@ import ht from "../assets/img/clothes/hoodie.png";
 import { say } from "../utils/say";
 
 let saya = Math.floor(Math.random() * 10);
-console.log(saya);
+// console.log(saya);
 
 const Today = () => {
   const [ultra, setUltra] = useState([]);
@@ -29,7 +29,7 @@ const Today = () => {
   useEffect(() => {
     getUltraSrtFcst().then((UltraSrtFcst) => setUltra(UltraSrtFcst));
   }, []);
-  //console.log(ultra);
+  console.log(ultra);
 
   let t1h = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -38,7 +38,22 @@ const Today = () => {
     }
   }
   //console.log(t1h);
-  //t1x
+
+  let sky = [];
+  for (let i = 0; i < ultra.length; i++) {
+    if (ultra[i].category === "SKY") {
+      sky.push(ultra[i]);
+    }
+  }
+  //console.log(sky);
+
+  let pty = [];
+  for (let i = 0; i < ultra.length; i++) {
+    if (ultra[i].category === "PTY") {
+      pty.push(ultra[i]);
+    }
+  }
+  //console.log(pty);
 
   let reh = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -101,6 +116,10 @@ const Today = () => {
   weekday[4] = "Thu";
   weekday[5] = "Fri";
   weekday[6] = "Sat";
+  weekday[7] = "Sun";
+  weekday[8] = "Mon";
+  weekday[9] = "Tue";
+  weekday[10] = "Wed";
 
   let gd = today.getDay();
   // console.log(weekday[gd]);
@@ -129,7 +148,7 @@ const Today = () => {
           <div className="week card">
             <ul>
               <li>
-                <h3>{weekday[gd]}</h3>
+                <h3>TODAY</h3>
                 <div className="icon">
                   <img src={sbc} alt="todayicon" />
                 </div>
