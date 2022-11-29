@@ -160,6 +160,12 @@ button{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    transition: all 1s ease;
+}
+
+.left .exercise.click {
+background: #000;
+transform: rotate3d(0,1,0,180deg);
 }
 
 .exercise p {
