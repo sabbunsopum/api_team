@@ -30,6 +30,32 @@ let saya = Math.floor(Math.random() * 10);
 // console.log(saya);
 
 const Today = () => {
+  // function exerciseFilp() {
+  //   const exerciseFront = document.querySelector(".exercise .front");
+  //   const exerciseBackOk = document.querySelector(".exercise .back.yes");
+  //   const exerciseBackWaving = document.querySelector(".exercise .back.no");
+  //   const exBtn1 = document.querySelector(".exercise .front .ok");
+  //   const exBtn2 = document.querySelector(".exercise .front .waving");
+
+  //   exBtn1.addEventListener("click", () => {
+  //     exerciseFront.style.display = "none";
+  //     exerciseBackOk.style.display = "flex";
+  //   });
+
+  //   exBtn2.addEventListener("click", () => {
+  //     exerciseFront.style.display = "none";
+  //     exerciseBackWaving.style.display = "flex";
+  //   });
+  // }
+  // exerciseFilp();
+  // const exerciseFront = document.querySelector(".exercise .front");
+  // const exerciseBackOk = document.querySelector(".exercise .back.yes");
+
+  // function exerciseFilp() {
+  //   exerciseFront.style.display = "none";
+  //   exerciseBackOk.style.display = "flex";
+  // }
+
   const [ultra, setUltra] = useState([]);
 
   useEffect(() => {
@@ -222,17 +248,17 @@ const Today = () => {
           <div className="exercise card">
             <div className="front">
               <p>오늘 운동할 계획이 있으신가요?</p>
-              <span>
+              <span className="ok">
                 <img src={oh} alt="" />
               </span>
-              <span>
+              <span className="waving">
                 <img src={wh} alt="" />
               </span>
             </div>
             <div className="back no">
               <img src={hh} alt="" />
               <p>
-                건강한 삶에서 휴식은 필수 ! 하지만 중간중간 스트레칭도 잊지
+                건강한 삶에서 휴식은 필수 !<br /> 중간중간 스트레칭도 잊지
                 말아주세요 :D
               </p>
             </div>
