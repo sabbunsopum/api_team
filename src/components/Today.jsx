@@ -10,13 +10,15 @@ import Loader from "./Loader";
 import sblc from "../assets/img/weather/Sun behind large cloud.png";
 import cwlr from "../assets/img/weather/Cloud with lightning and rain.png";
 import sbc from "../assets/img/weather/Sun behind cloud.png";
-// import dog from "../assets/img/animal/Dog.png";
-// import bcat from "../assets/img/animal/Black cat.png";
+import dog from "../assets/img/animal/Dog.png";
+import bcat from "../assets/img/animal/Black cat.png";
 import wh from "../assets/img/exercise/Waving hand.png";
 import oh from "../assets/img/exercise/OK hand.png";
+import hh from "../assets/img/exercise/Heart hands.png";
+import ex1 from "../assets/img/exercise/Badminton.png";
 import cld from "../assets/img/weather/Cloud.png";
 import sbsc from "../assets/img/weather/Sun behind small cloud.png";
-// import pp from "../assets/img/animal/Potted plant.png";
+import pp from "../assets/img/animal/Potted plant.png";
 import tree from "../assets/img/animal/tree.png";
 import blossom from "../assets/img/animal/Blossom.png";
 import dog2 from "../assets/img/animal/Guide dog.png";
@@ -227,27 +229,27 @@ const Today = () => {
                 <img src={wh} alt="" />
               </span>
             </div>
-            {/* <div classNameName="back no">
+            <div className="back no">
               <img src={hh} alt="" />
               <p>
                 건강한 삶에서 휴식은 필수 ! 하지만 중간중간 스트레칭도 잊지
                 말아주세요 :D
               </p>
-            </div> */}
-            {/* <div classNameName="back yes">
+            </div>
+            <div className="back yes">
               <img src={ex1} alt="" />
               <p>
                 햇빛이 강하지 않은 하루에요 !<br /> 집 앞 공원에서 배드민턴
                 어때요 ?
               </p>
-            </div> */}
+            </div>
           </div>
           <div className="saying card">
             <p>{say[saya].cont}</p>
             <span className="man">{say[saya].name}</span>
           </div>
           <div className="animal card">
-            {/* <div className="front">
+            <div className="front">
               <p>
                 키우시는 반려동물을 선택해주세요 !<br />
                 없다면 화분을 눌러주세요 !
@@ -259,27 +261,27 @@ const Today = () => {
               />
               <span className="dog">
                 <button type="submit" onClick={doAction} className="tipBtn">
-                  <img src={dog} alt="" />
+                  <img src={dog} alt="강아지" />
                 </button>
               </span>
               <span className="plants">
                 <button type="submit" onClick={doAction} className="tipBtn">
-                  <img src={pp} alt="" />
+                  <img src={pp} alt="화분" />
                 </button>
               </span>
               <span className="cat">
                 <button type="submit" onClick={doAction} className="tipBtn">
-                  <img src={bcat} alt="" />
+                  <img src={bcat} alt="고양이" />
                 </button>
               </span>
-            </div> */}
+            </div>
             <div className="back dog">
               <div className="bg">
-                <img className="i1" src={tree} alt="" />
-                <img className="i2" src={blossom} alt="" />
-                <img className="i3" src={tree} alt="" />
-                <img className="i4" src={dog2} alt="" />
-                <img className="i5" src={tree} alt="" />
+                <img className="i1" src={tree} alt="나무" />
+                <img className="i2" src={blossom} alt="꽃" />
+                <img className="i3" src={tree} alt="나무" />
+                <img className="i4" src={dog2} alt="산책하는 강아지" />
+                <img className="i5" src={tree} alt="나무" />
               </div>
               <p>
                 ‘ㅇㅇ’와 산책하기 좋은 날이에요 :D <br />

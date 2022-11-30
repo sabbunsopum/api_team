@@ -183,6 +183,10 @@ button {
     background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5));
 }
 
+.exercise .back {
+    display: none;
+}
+
 .left .saying {
     width: 49%;
     height: 18%;
@@ -250,6 +254,7 @@ button {
 }
 
 .animal .back.dog {
+    display: none;
     /* display: flex;
     flex-wrap: wrap;
     justify-content: center;
