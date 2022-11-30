@@ -169,7 +169,7 @@ button {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    position: absolute;
+    /* position: absolute; */
     transition: transform 1s;
     transform-style: preserve-3d;
 }
@@ -186,6 +186,7 @@ button {
 
 .exercise .front p {
     font-size: 18px;
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
