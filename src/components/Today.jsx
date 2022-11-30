@@ -246,28 +246,30 @@ const Today = () => {
           </div>
 
           <div className="exercise card">
-            <div className="front">
-              <p>오늘 운동할 계획이 있으신가요?</p>
-              <span className="ok">
-                <img src={oh} alt="" />
-              </span>
-              <span className="waving">
-                <img src={wh} alt="" />
-              </span>
-            </div>
-            <div className="back no">
-              <img src={hh} alt="" />
-              <p>
-                건강한 삶에서 휴식은 필수 !<br /> 중간중간 스트레칭도 잊지
-                말아주세요 :D
-              </p>
-            </div>
-            <div className="back yes">
-              <img src={ex1} alt="" />
-              <p>
-                햇빛이 강하지 않은 하루에요 !<br /> 집 앞 공원에서 배드민턴
-                어때요 ?
-              </p>
+            <div className="exercise__inner">
+              <div className="front">
+                <p>오늘 운동할 계획이 있으신가요?</p>
+                <span className="ok">
+                  <img src={oh} alt="" />
+                </span>
+                <span className="waving">
+                  <img src={wh} alt="" />
+                </span>
+              </div>
+              <div className="back no">
+                <img src={hh} alt="" />
+                <p>
+                  건강한 삶에서 휴식은 필수 !<br /> 중간중간 스트레칭도 잊지
+                  말아주세요 :D
+                </p>
+              </div>
+              <div className="back yes">
+                <img src={ex1} alt="" />
+                <p>
+                  햇빛이 강하지 않은 하루에요 !<br /> 집 앞 공원에서 배드민턴
+                  어때요 ?
+                </p>
+              </div>
             </div>
           </div>
           <div className="saying card">
