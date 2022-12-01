@@ -9,20 +9,24 @@ import Loader from "./Loader";
 
 import Sblc from "../assets/img/weather/Sun behind large cloud.png";
 import Cwlr from "../assets/img/weather/Cloud with lightning and rain.png";
-import Sbc from "../assets/img/weather/Sun behind cloud.png";
 import Dog from "../assets/img/animal/Dog.png";
 import Bcat from "../assets/img/animal/Black cat.png";
 import Wh from "../assets/img/exercise/Waving hand.png";
 import Oh from "../assets/img/exercise/OK hand.png";
 import Hh from "../assets/img/exercise/Heart hands.png";
 import Ex1 from "../assets/img/exercise/Badminton.png";
-import Cld from "../assets/img/weather/Cloud.png";
 import Sbsc from "../assets/img/weather/Sun behind small cloud.png";
 import Pp from "../assets/img/animal/Potted plant.png";
 import Tree from "../assets/img/animal/tree.png";
 import Blossom from "../assets/img/animal/Blossom.png";
 import Dog2 from "../assets/img/animal/Guide dog.png";
 import Ht from "../assets/img/clothes/hoodie.png";
+
+import Sun from "../assets/img/weather/Sun.png";
+import Sbc from "../assets/img/weather/Sun behind cloud.png";
+import Cld from "../assets/img/weather/Cloud.png";
+import Sbrc from "../assets/img/weather/Sun behind rain cloud.png";
+import Sbsnc from "../assets/img/weather/Sun behind snow cloud.png";
 
 import { say } from "../utils/say";
 
@@ -90,6 +94,40 @@ const Today = () => {
   }
   console.log(pty);
   //대기
+
+  let tdi = 0;
+  sky[0].fcstValue === "1"
+    ? (tdi = Sun)
+    : sky[0].fcstValue === "3"
+    ? (tdi = Sbc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "1"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "2"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "3"
+    ? (tdi = Sbsnc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "5"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "6"
+    ? (tdi = Sbsnc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "7"
+    ? (tdi = Sbsnc)
+    : sky[0].fcstValue === "4"
+    ? (tdi = Cld)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "1"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "2"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "3"
+    ? (tdi = Sbsnc)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "5"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "6"
+    ? (tdi = Sbsnc)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "7"
+    ? (tdi = Sbsnc)
+    : console.log(tdi);
+  //투데이아이콘
 
   let reh = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -171,6 +209,7 @@ const Today = () => {
   if (!ultra?.length) return <Loader />;
   if (!fcst?.length && !mid?.length) return <Loader />;
   //로딩
+
   return (
     <main id="main">
       <meta
@@ -327,7 +366,7 @@ const Today = () => {
               {todaystring} &lt;{weekday[gd]}&gt;
             </div>
             <div className="wea">
-              <img src={Sbc} alt="" />
+              <img src={tdi} alt="" />
             </div>
             <div className="tem">{t1h[0].fcstValue}℃</div>
             <div className="more">

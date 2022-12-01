@@ -3,7 +3,7 @@
 //(초단) 없음(0), 비(1), 비/눈(2), 눈(3), 빗방울(5), 빗방울눈날림(6), 눈날림(7)
 //(단기) 없음(0), 비(1), 비/눈(2), 눈(3), 소나기(4)
 
-export const weatherIcon = [
+export const WeatherIcon = [
   {
     name: "맑음",
     from: "./assets/img/weather/Sun.png",
