@@ -51,7 +51,7 @@ var today = new Date();
 var year = today.getFullYear();
 var month = ("0" + (today.getMonth() + 1)).slice(-2);
 var day = ("0" + today.getDate()).slice(-2);
-var hours = today.getHours() - 1 + "30";
+var hours = `0${today.getHours() - 1}30`;
 console.log(hours);
 var todaystring = year + month + day;
 
