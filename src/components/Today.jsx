@@ -175,6 +175,7 @@ const Today = () => {
   if (!ultra?.length) return <Loader />;
   if (!fcst?.length && !mid?.length) return <Loader />;
   //로딩
+
   let tdi = 0;
   sky[0].fcstValue === "1"
     ? (tdi = Sun)
