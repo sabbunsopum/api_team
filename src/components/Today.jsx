@@ -95,40 +95,6 @@ const Today = () => {
   console.log(pty);
   //대기
 
-  let tdi = 0;
-  sky[0].fcstValue === "1"
-    ? (tdi = Sun)
-    : sky[0].fcstValue === "3"
-    ? (tdi = Sbc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "1"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "2"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "3"
-    ? (tdi = Sbsnc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "5"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "6"
-    ? (tdi = Sbsnc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "7"
-    ? (tdi = Sbsnc)
-    : sky[0].fcstValue === "4"
-    ? (tdi = Cld)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "1"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "2"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "3"
-    ? (tdi = Sbsnc)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "5"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "6"
-    ? (tdi = Sbsnc)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "7"
-    ? (tdi = Sbsnc)
-    : console.log(tdi);
-  //투데이아이콘
-
   let reh = [];
   for (let i = 0; i < ultra.length; i++) {
     if (ultra[i].category === "REH") {
@@ -209,6 +175,39 @@ const Today = () => {
   if (!ultra?.length) return <Loader />;
   if (!fcst?.length && !mid?.length) return <Loader />;
   //로딩
+  let tdi = 0;
+  sky[0].fcstValue === "1"
+    ? (tdi = Sun)
+    : sky[0].fcstValue === "3"
+    ? (tdi = Sbc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "1"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "2"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "3"
+    ? (tdi = Sbsnc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "5"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "6"
+    ? (tdi = Sbsnc)
+    : sky[0].fcstValue === "3" && pty[0].fcstValue === "7"
+    ? (tdi = Sbsnc)
+    : sky[0].fcstValue === "4"
+    ? (tdi = Cld)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "1"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "2"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "3"
+    ? (tdi = Sbsnc)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "5"
+    ? (tdi = Sbrc)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "6"
+    ? (tdi = Sbsnc)
+    : sky[0].fcstValue === "4" && pty[0].fcstValue === "7"
+    ? (tdi = Sbsnc)
+    : console.log(tdi);
+  //투데이아이콘
 
   return (
     <main id="main">
