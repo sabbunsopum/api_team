@@ -59,14 +59,9 @@ const Today = () => {
   //   exerciseFront.style.display = "none";
   //   exerciseBackOk.style.display = "flex";
   // }
-
   const [ultra, setUltra] = useState([]);
-
-  useEffect(() => {
-    getUltraSrtFcst().then((UltraSrtFcst) => setUltra(UltraSrtFcst));
-  }, []);
-  //console.log(ultra);
-  //초단기예보
+  const [mid, setMid] = useState([]);
+  const [fcst, setVilage] = useState([]);
 
   let t1h = [];
   for (let i = 0; i < ultra.length; i++) {
@@ -113,7 +108,6 @@ const Today = () => {
   //console.log(WSD);
   //풍속
 
-  const [fcst, setVilage] = useState([]);
   useEffect(() => {
     getVilageFcst().then((VilageFcst) => setVilage(VilageFcst));
   }, []);
@@ -161,7 +155,12 @@ const Today = () => {
   //console.log(weekday[gd]);
   //요일로 바꾸기
 
-  const [mid, setMid] = useState([]);
+  useEffect(() => {
+    getUltraSrtFcst().then((UltraSrtFcst) => setUltra(UltraSrtFcst));
+  }, []);
+  //console.log(ultra);
+  //초단기예보
+
   useEffect(() => {
     getMidTa().then((MidTa) => setMid(MidTa));
   }, []);
