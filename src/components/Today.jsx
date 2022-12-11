@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import { getVilageFcst } from "../utils/VilageFcst";
 import { getMidTa } from "../utils/MidTa";
@@ -34,6 +33,43 @@ let saya = Math.floor(Math.random() * 10);
 // console.log(saya);
 
 const Today = () => {
+
+  const exercise = useRef(null);
+  const exerciseFront = useRef(null);
+  const exerciseBackOk = useRef(null);
+  const exerciseBackWaving = useRef(null);
+  const animalFront = useRef(null);
+  const animalBackdog = useRef(null);
+  const animalBackcat = useRef(null);
+  const animalBackPlant = useRef(null);
+
+    const exBtn1 = () => {
+      exerciseFront.current.style.display = 'none';
+      exerciseBackOk.current.style.display = 'flex';
+    }
+
+    const exBtn2 = () => {
+      exerciseFront.current.style.display = 'none';
+      exerciseBackWaving.current.style.display = 'flex';
+    }
+
+    const onPlant = () => {
+      animalFront.current.style.display = 'none';
+      animalBackPlant.current.style.display = 'flex';
+    }
+
+    const onDog = () => {
+      animalFront.current.style.display = 'none';
+      animalBackdog.current.style.display = 'flex';
+    }
+
+    const onCat = () => {
+      animalFront.current.style.display = 'none';
+      animalBackcat.current.style.display = 'flex';
+    }
+
+    
+
   // function exerciseFilp() {
   //   const exerciseFront = document.querySelector(".exercise .front");
   //   const exerciseBackOk = document.querySelector(".exercise .back.yes");
@@ -59,6 +95,7 @@ const Today = () => {
   //   exerciseFront.style.display = "none";
   //   exerciseBackOk.style.display = "flex";
   // }
+
   const [ultra, setUltra] = useState([]);
   const [mid, setMid] = useState([]);
   const [fcst, setVilage] = useState([]);
@@ -167,9 +204,6 @@ const Today = () => {
   //중기예보
   //console.log(mid);
 
-  function doAction() {
-    alert("이름을 알려주세요");
-  }
 
   if (!ultra?.length) return <Loader />;
   if (!fcst?.length && !mid?.length) return <Loader />;
@@ -267,8 +301,8 @@ const Today = () => {
                 </div>
 
                 <div className="temp">
-                  <span className="high">{mid.taMin3}</span>
-                  <span className="low">{mid.taMax3}</span>
+                  <span className="high">{mid.taMin4}</span>
+                  <span className="low">{mid.taMax4}</span>
                 </div>
               </li>
               <li>
@@ -278,32 +312,32 @@ const Today = () => {
                 </div>
 
                 <div className="temp">
-                  <span className="high">{mid.taMin4}</span>
-                  <span className="low">{mid.taMax4}</span>
+                  <span className="high">{mid.taMin5}</span>
+                  <span className="low">{mid.taMax5}</span>
                 </div>
               </li>
             </ul>
           </div>
 
-          <div className="exercise card">
+          <div className="exercise card"  ref={exercise}>
             <div className="exercise__inner">
-              <div className="front">
+              <div className="front" ref={exerciseFront}>
                 <p>오늘 운동할 계획이 있으신가요?</p>
-                <span className="ok">
-                  <img src={Oh} alt="" />
+                <span className="ok"  >
+                  <img src={Oh} alt="" onClick={() => {exBtn1();}}/>
                 </span>
                 <span className="waving">
-                  <img src={Wh} alt="" />
+                  <img src={Wh} alt="" onClick={() => {exBtn2();}}/>
                 </span>
               </div>
-              <div className="back no">
+              <div className="back no" ref={exerciseBackWaving}>
                 <img src={Hh} alt="" />
                 <p>
                   건강한 삶에서 휴식은 필수 !<br /> 중간중간 스트레칭도 잊지
                   말아주세요 :D
                 </p>
               </div>
-              <div className="back yes">
+              <div className="back yes" ref={exerciseBackOk}>
                 <img src={Ex1} alt="" />
                 <p>
                   햇빛이 강하지 않은 하루에요 !<br /> 집 앞 공원에서 배드민턴
@@ -316,34 +350,35 @@ const Today = () => {
             <p>{say[saya].cont}</p>
             <span className="man">{say[saya].name}</span>
           </div>
+
           <div className="animal card">
-            <div className="front">
+            <div className="front" ref={animalFront}>
               <p>
                 키우시는 반려동물을 선택해주세요 !<br />
                 없다면 화분을 눌러주세요 !
               </p>
-              <input
+              {/* <input
                 className="gmark"
                 type="text"
                 placeholder="이름이 무엇인가요?"
-              />
+              /> */}
               <span className="dog">
-                <button type="submit" onClick={doAction} className="tipBtn">
+                <button type="submit" onClick={() => {onDog();}}>
                   <img src={Dog} alt="강아지" />
                 </button>
               </span>
               <span className="plants">
-                <button type="submit" onClick={doAction} className="tipBtn">
+                <button type="submit" onClick={() => {onPlant();}}>
                   <img src={Pp} alt="화분" />
                 </button>
               </span>
               <span className="cat">
-                <button type="submit" onClick={doAction} className="tipBtn">
+                <button type="submit" onClick={() => {onCat();}}>
                   <img src={Bcat} alt="고양이" />
                 </button>
               </span>
             </div>
-            <div className="back dog">
+            <div className="back dog" ref={animalBackdog}>
               <div className="bg">
                 <img className="i1" src={Tree} alt="나무" />
                 <img className="i2" src={Blossom} alt="꽃" />
@@ -354,6 +389,32 @@ const Today = () => {
               <p>
                 ‘ㅇㅇ’와 산책하기 좋은 날이에요 :D <br />
                 다만, 늦은 시간에는 긴팔이나 가디건을 챙기는 것을 추천드려요 !
+              </p>
+            </div>
+            <div className="back cat" ref={animalBackcat}>
+              <div className="bg">
+                <img className="i1" src={Tree} alt="나무" />
+                <img className="i2" src={Blossom} alt="꽃" />
+                <img className="i3" src={Tree} alt="나무" />
+                <img className="i4" src={Bcat} alt="산책하는 고양이" />
+                <img className="i5" src={Tree} alt="나무" />
+              </div>
+              <p>
+                ‘ㅇㅇ’와 산책하기 좋은 날이에요 :D <br />
+                다만, 늦은 시간에는 긴팔이나 가디건을 챙기는 것을 추천드려요 !
+              </p>
+            </div>
+            <div className="back plant" ref={animalBackPlant}>
+              <div className="bg">
+                <img className="i1" src={Tree} alt="나무" />
+                <img className="i2" src={Blossom} alt="꽃" />
+                <img className="i3" src={Tree} alt="나무" />
+                <img className="i4" src={Pp} alt="산책하는 화분" />
+                <img className="i5" src={Tree} alt="나무" />
+              </div>
+              <p>
+              반려동물과 함께 할 수 없는 환경이라면 반려식물 길러보는건 어떨까요?" <br/>
+              * 반려 식물은 친구처럼 정서적인 교감과 위안을 얻는 식물을 뜻하는 신조어입니다.
               </p>
             </div>
           </div>

@@ -208,8 +208,8 @@ button {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    transform: rotateY(-180deg);
-    /* display: none; */
+    /* transform: rotateY(-180deg); */
+    display: none;
 }
 
 .exercise .back.no img {
@@ -228,8 +228,8 @@ button {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    transform: rotateY(180deg);
-    /* display: none; */
+    /* transform: rotateY(180deg); */
+    display: none;
 }
 
 .exercise .back.yes img {
@@ -371,6 +371,142 @@ button {
     left: 50%;
     bottom: 20px;
     transform: translateX(-50%);
+}
+
+.animal .back.dog {
+    display: none;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+    margin-top: -20px;
+    overflow: hidden;
+    height: 80%;
+}
+
+.animal .back.cat .bg {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}
+
+.animal .back.cat .bg img {
+    position: absolute;
+}
+
+.animal .back.cat .bg .i1 {
+    left: 120px;
+    top: -70px;
+    width: 150px;
+}
+
+.animal .back.cat .bg .i2 {
+    left: 220px;
+    top: 50px;
+    width: 50px;
+}
+
+.animal .back.cat .bg .i3 {
+    left: 40px;
+    top: -50px;
+    width: 150px;
+}
+
+.animal .back.cat .bg .i4 {
+    left: 50%;
+    top: 0px;
+    transform: translateX(-50%);
+    width: 150px;
+}
+
+.animal .back.cat .bg .i5 {
+    right: 40px;
+    top: 0px;
+    width: 150px;
+}
+
+.animal .back.cat p {
+    line-height: 1.4;
+    font-size: 18px;
+    position: absolute;
+    width: 88%;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+}
+.animal .back.cat {
+    display: none;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+    margin-top: -20px;
+    overflow: hidden;
+    height: 80%;
+}
+
+
+.animal .back.plant .bg {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}
+
+.animal .back.plant .bg img {
+    position: absolute;
+}
+
+.animal .back.plant .bg .i1 {
+    left: 120px;
+    top: -70px;
+    width: 150px;
+}
+
+.animal .back.plant .bg .i2 {
+    left: 220px;
+    top: 50px;
+    width: 50px;
+}
+
+.animal .back.plant .bg .i3 {
+    left: 40px;
+    top: -50px;
+    width: 150px;
+}
+
+.animal .back.plant .bg .i4 {
+    left: 50%;
+    top: 0px;
+    transform: translateX(-50%);
+    width: 150px;
+}
+
+.animal .back.plant .bg .i5 {
+    right: 40px;
+    top: 0px;
+    width: 150px;
+}
+
+.animal .back.plant p {
+    line-height: 1.4;
+    font-size: 18px;
+    position: absolute;
+    width: 88%;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+}
+.animal .back.plant {
+    display: none;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+    margin-top: -20px;
+    overflow: hidden;
+    height: 80%;
 }
 
 .right {
