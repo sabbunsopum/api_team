@@ -197,6 +197,7 @@ button {
     padding: 15px;
     margin: 0 15px;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .exercise .front span:hover img {
@@ -204,7 +205,6 @@ button {
 }
 
 .exercise .back.no {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -224,12 +224,12 @@ button {
 }
 
 .exercise .back.yes {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     /* transform: rotateY(180deg); */
     display: none;
+
 }
 
 .exercise .back.yes img {
