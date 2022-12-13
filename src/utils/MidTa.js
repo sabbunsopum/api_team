@@ -51,9 +51,11 @@ var year = today.getFullYear();
 var month = ("0" + (today.getMonth() + 1)).slice(-2);
 var day = ("0" + (today.getDate() - 1)).slice(-2);
 
+
 var yesterday = year + month + day;
 
-//console.log(todaystring);
+
+console.log(yesterday);
 //오늘날짜
 
 //함수선언
@@ -65,8 +67,8 @@ export const getMidTa = async () => {
     url +
     "?serviceKey=" +
     authKey +
-    `&numOfRows=10&pageNo=1&regId=11B10101&tmFc=${yesterday}1800`;
-  //06시 18시 발표
+    `&numOfRows=10&pageNo=1&regId=11B10101&tmFc=${yesterday}0600`;
+  //06시 발표
   // async와 await을 통해 바로 XML을 JSON으로 변환
   const response = await fetch(reqURL);
   const xmlString = await response.text();
