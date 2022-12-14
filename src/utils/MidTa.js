@@ -78,7 +78,7 @@ export const getMidTa = async () => {
   const response = await fetch(reqURL);
   const xmlString = await response.text();
   var XmlNode = new DOMParser().parseFromString(xmlString, "text/xml");
-  console.log(xmlToJson(XmlNode))
+  
 
   const MidTa = xmlToJson(XmlNode).response.body.items.item;
   return MidTa;

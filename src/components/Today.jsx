@@ -202,7 +202,7 @@ const Today = () => {
     getMidTa().then((MidTa) => setMid(MidTa));
   }, []);
   //중기예보
-  console.log(mid);
+  //console.log(mid);
 
 
   if (!ultra?.length) return <Loader />;
