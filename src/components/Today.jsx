@@ -115,7 +115,7 @@ const Today = () => {
       sky.push(ultra[i]);
     }
   }
-  console.log(sky);
+  //console.log(sky);
   //하늘
 
   let pty = [];
@@ -124,7 +124,7 @@ const Today = () => {
       pty.push(ultra[i]);
     }
   }
-  console.log(pty);
+  //console.log(pty);
   //대기
 
   let reh = [];
