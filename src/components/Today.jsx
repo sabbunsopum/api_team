@@ -8,6 +8,9 @@ import Loader from "./Loader";
 
 import Sblc from "../assets/img/weather/Sun behind large cloud.png";
 import Cwlr from "../assets/img/weather/Cloud with lightning and rain.png";
+import Cwr from "../assets/img/weather/Cloud with rain.png";
+import Cws from "../assets/img/weather/Cloud with snow.png";
+
 import Dog from "../assets/img/animal/Dog.png";
 import Bcat from "../assets/img/animal/Black cat.png";
 import Wh from "../assets/img/exercise/Waving hand.png";
@@ -115,7 +118,7 @@ const Today = () => {
       sky.push(ultra[i]);
     }
   }
-  //console.log(sky);
+  console.log(sky);
   //하늘
 
   let pty = [];
@@ -124,7 +127,7 @@ const Today = () => {
       pty.push(ultra[i]);
     }
   }
-  //console.log(pty);
+  console.log(pty);
   //대기
 
   let reh = [];
@@ -210,39 +213,38 @@ const Today = () => {
   //로딩
 
   let tdi = 0;
-  sky[0].fcstValue === "1"
-    ? (tdi = Sun)
-    : sky[0].fcstValue === "3"
-    ? (tdi = Sbc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "1"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "2"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "3"
-    ? (tdi = Sbsnc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "5"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "6"
-    ? (tdi = Sbsnc)
-    : sky[0].fcstValue === "3" && pty[0].fcstValue === "7"
-    ? (tdi = Sbsnc)
-    : sky[0].fcstValue === "4"
-    ? (tdi = Cld)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "1"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "2"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "3"
-    ? (tdi = Sbsnc)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "5"
-    ? (tdi = Sbrc)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "6"
-    ? (tdi = Sbsnc)
-    : sky[0].fcstValue === "4" && pty[0].fcstValue === "7"
-    ? (tdi = Sbsnc)
-    : console.log(tdi);
+  if(sky[0].fcstValue === "1")
+  {tdi = Sun}
+  if(sky[0].fcstValue === "3")
+  {tdi = Sbc}
+  if(sky[0].fcstValue === "3" && pty[0].fcstValue === "1")
+  {tdi = Sbrc}
+  if(sky[0].fcstValue === "3" && pty[0].fcstValue === "2")
+  {tdi = Sbrc}
+  if(sky[0].fcstValue === "3" && pty[0].fcstValue === "3")
+  {tdi = Sbsnc}
+  if(sky[0].fcstValue === "3" && pty[0].fcstValue === "5")
+  {tdi = Sbrc}
+  if(sky[0].fcstValue === "3" && pty[0].fcstValue === "6")
+  {tdi = Sbsnc}
+  if(sky[0].fcstValue === "3" && pty[0].fcstValue === "7")
+  {tdi = Sbsnc}
+  if(sky[0].fcstValue === "4")
+  {tdi = Cld}
+  if(sky[0].fcstValue === "4" && pty[0].fcstValue === "1")
+  {tdi = Cwr}
+  if(sky[0].fcstValue === "4" && pty[0].fcstValue === "2")
+  {tdi = Cwr}
+  if(sky[0].fcstValue === "4" && pty[0].fcstValue === "3")
+  {tdi = Cws}
+  if(sky[0].fcstValue === "4" && pty[0].fcstValue === "5")
+  {tdi = Cwr}
+  if(sky[0].fcstValue === "4" && pty[0].fcstValue === "6")
+  {tdi = Cws}
+  if(sky[0].fcstValue === "4" && pty[0].fcstValue === "7")
+  {tdi = Cws}
   //투데이아이콘
-
+  console.log(tdi);
   return (
     <main id="main">
       <meta
