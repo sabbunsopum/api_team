@@ -589,7 +589,7 @@ button {
         text-align: center;
     }
 
-    .exercise span img {
+    .exercise .front span img {
         width: 5vw;
         padding: 1vw;
         margin: 5px;
@@ -711,7 +711,7 @@ button {
         width: 100%;
     }
 
-    .animal input {
+    .animal .front input {
         width: 30%;
         font-size: 1em;
     }
