@@ -50,12 +50,18 @@ var today = new Date();
 
 var year = today.getFullYear();
 var month = ("0" + (today.getMonth() + 1)).slice(-2);
-var day = ("0" + (today.getDate() - 1)).slice(-2);
+var day = ("0" + (today.getDate())).slice(-2);
+var hours = today.getHours()
 
-var yesterday = year + month + day;
+if(hours <= 6 ){
+  day = ("0" + (today.getDate()-1)).slice(-2);
+  hours = "18";
+}else{
+  hours = "06";
+}
+var todaystring = year + month + day;
+console.log(todaystring);
 
-// console.log(yesterday);
-//어제날짜
 
 //함수선언
 export const getVilageFcst = async () => {
@@ -67,7 +73,7 @@ export const getVilageFcst = async () => {
     url +
     "?serviceKey=" +
     authKey +
-    `&numOfRows=1000&base_date=${yesterday}&base_time=2300&nx=57&ny=122`;
+    `&numOfRows=1000&base_date=${todaystring}&base_time=${hours}00&nx=61&ny=126`;
 
   // async와 await을 통해 바로 XML을 JSON으로 변환
   const response = await fetch(reqURL);

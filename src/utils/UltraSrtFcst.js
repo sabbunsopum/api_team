@@ -67,7 +67,7 @@ export const getUltraSrtFcst = async () => {
     url +
     "?serviceKey=" +
     authKey +
-    `&base_date=${todaystring}&base_time=${hours}&nx=57&ny=122&numOfRows=100`;
+    `&base_date=${todaystring}&base_time=${hours}&nx=61&ny=126&numOfRows=100`;
 
   // async와 await을 통해 바로 XML을 JSON으로 변환
   const response = await fetch(reqURL);
