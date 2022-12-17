@@ -53,11 +53,11 @@ var month = ("0" + (today.getMonth() + 1)).slice(-2);
 var day = ("0" + (today.getDate())).slice(-2);
 var hours = today.getHours()
 
-if(hours <= 6 ){
+if(hours <= 5 ){
   day = ("0" + (today.getDate()-1)).slice(-2);
-  hours = "18";
+  hours = "23";
 }else{
-  hours = "06";
+  hours = "05";
 }
 var todaystring = year + month + day;
 console.log(todaystring);
