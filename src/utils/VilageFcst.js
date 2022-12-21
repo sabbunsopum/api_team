@@ -50,18 +50,16 @@ var today = new Date();
 
 var year = today.getFullYear();
 var month = ("0" + (today.getMonth() + 1)).slice(-2);
-var day = ("0" + (today.getDate())).slice(-2);
 var hours = today.getHours()
+var day = 0;
 
-if(hours <= 5 ){
-  day = ("0" + (today.getDate()-1)).slice(-2);
-  hours = "23";
+if(hours >= 23 ){
+  day = ("0" + (today.getDate())).slice(-2);
 }else{
-  hours = "05";
+ day = ("0" + (today.getDate()-1)).slice(-2);
 }
 var todaystring = year + month + day;
 console.log(todaystring);
-
 
 //함수선언
 export const getVilageFcst = async () => {
@@ -73,13 +71,14 @@ export const getVilageFcst = async () => {
     url +
     "?serviceKey=" +
     authKey +
-    `&numOfRows=1000&base_date=${todaystring}&base_time=${hours}00&nx=61&ny=126`;
+    `&numOfRows=1000&base_date=${todaystring}&base_time=2300&nx=61&ny=126`;
 
   // async와 await을 통해 바로 XML을 JSON으로 변환
   const response = await fetch(reqURL);
   const xmlString = await response.text();
   var XmlNode = new DOMParser().parseFromString(xmlString, "text/xml");
   const VilageFcst = xmlToJson(XmlNode).response.body.items.item;
+console.log(VilageFcst);
 
   return VilageFcst;
 };

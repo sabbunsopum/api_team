@@ -59,7 +59,7 @@ if(hours <= 6 ){
   hours = "06";
 }
 var todaystring = year + month + day + hours;
-console.log(todaystring);
+//console.log(todaystring);
 
 //오늘날짜
 

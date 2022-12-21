@@ -118,7 +118,7 @@ const Today = () => {
       sky.push(ultra[i]);
     }
   }
-  console.log(sky);
+  //console.log(sky);
   //하늘
 
   let pty = [];
@@ -127,7 +127,7 @@ const Today = () => {
       pty.push(ultra[i]);
     }
   }
-  console.log(pty);
+  //console.log(pty);
   //대기
 
   let reh = [];
@@ -244,7 +244,7 @@ const Today = () => {
   if(sky[0].fcstValue === "4" && pty[0].fcstValue === "7")
   {tdi = Cws}
   //투데이아이콘
-  console.log(tdi);
+  //console.log(tdi);
   return (
     <main id="main">
       <meta

@@ -52,7 +52,7 @@ var year = today.getFullYear();
 var month = ("0" + (today.getMonth() + 1)).slice(-2);
 var day = ("0" + today.getDate()).slice(-2);
 var hours = (today.getHours() - 1 + "30").padStart(4, "0");
-console.log(hours);
+//console.log(hours);
 var todaystring = year + month + day;
 
 //console.log(todaystring);
